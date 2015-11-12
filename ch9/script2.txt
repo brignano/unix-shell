@@ -1,0 +1,1 @@
+Too few arguments: $ mycat [-ens] file1 [file2 ...]
