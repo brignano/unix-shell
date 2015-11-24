@@ -2,6 +2,9 @@
 # script3 - shows how an environment variable is passed to commands
 # TZ is timezone, affect things like date, and ls -l
 #
+if ("cool"="cool") then
+ echo cool 
+
 echo "The time in Boston is"
 	TZ=EST5EDT
 	export TZ            # add TZ to the environment

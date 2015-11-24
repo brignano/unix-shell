@@ -16,7 +16,6 @@ int execute(char *argv[])
 {
 	int	pid ;
 	int	child_info = -1;
-	cahr *path;
 
 	if ( argv[0] == NULL )		/* nothing succeeds	*/
 		return 0;
@@ -26,9 +25,8 @@ int execute(char *argv[])
 	else if ( pid == 0 ){
 		signal(SIGINT, SIG_DFL);
 		signal(SIGQUIT, SIG_DFL);
-		path = getenv(argv[0]);
 		execvp(argv[0], argv);
-		perror("cannot execute command1");
+		perror("cannot execute command");
 		exit(1);
 	}
 	else {
