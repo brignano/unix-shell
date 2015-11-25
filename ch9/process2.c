@@ -1,5 +1,6 @@
 #include	<stdio.h>
 #include	"smsh.h"
+#include	<string.h>
 
 /* process2.c   - version 2 - supports builtins
  * command processing layer
@@ -30,16 +31,16 @@ int process(char **args)
 		rv = 0;
 	else if ( is_control_command(args[0]) )
 		rv = do_control_command(args);
-	else if ( ok_to_execute() )
-		 if (!(args[1]==NULL) && strcmp(args[1],"|")==0)
-		{
-		printf("ok");
-		char *p[3] = {"pipe", args[0],args[2]};
-		pipe1(p);
-		rv =1;
+	else if ( ok_to_execute() ){
+		 if ((args[1] != NULL) && (strcmp(args[1],"|")==0)){
+			char *p[3] = {"pipe", args[0],args[2]};
+			pipe1(p);
+			rv =1;
 		}
-		else if ( !builtin_command(args,&rv))
-		rv = execute(args);
+		else if ( !builtin_command(args,&rv)){
+			rv = execute(args);
+		}
+	}
 	return rv;
 }
 

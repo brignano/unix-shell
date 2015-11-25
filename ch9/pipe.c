@@ -13,7 +13,7 @@
 #include 	<stdlib.h>
 #define	oops(m,x)	{ perror(m); exit(x); }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
 	int	thepipe[2],			/* two file descriptors	*/
 		newfd,				/* useful for pipes	*/

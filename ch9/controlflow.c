@@ -5,6 +5,7 @@
  */
 #include	<stdio.h>
 #include	"smsh.h"
+#include	<string.h>
 
 enum states   { NEUTRAL, WANT_THEN, THEN_BLOCK };
 enum results  { SUCCESS, FAIL };
