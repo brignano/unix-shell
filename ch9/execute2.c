@@ -2,7 +2,6 @@
 #include	<stdlib.h>
 #include	<unistd.h>
 #include	<signal.h>
-#include	<string.h>
 #include	<sys/wait.h>
 #include	"varlib.h"
 /* execute2.c - includes environmment handling */
@@ -17,7 +16,7 @@ int execute(char *argv[])
 	extern char **environ;
 	int	pid ;
 	int	child_info = -1;
-
+    char *path;
 	if ( argv[0] == NULL )		/* nothing succeeds	*/
 		return 0;
 
@@ -27,10 +26,9 @@ int execute(char *argv[])
 		environ = VLtable2environ();
 		signal(SIGINT, SIG_DFL);
 		signal(SIGQUIT, SIG_DFL);
-
-
+     
+       
 		execvp(argv[0], argv);
-
 		perror("cannot execute command2");
 		exit(1);
 	}

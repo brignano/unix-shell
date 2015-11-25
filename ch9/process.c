@@ -1,7 +1,4 @@
-#include	<stdio.h>
-#include	"smsh.h"
-
-/* process2.c   - version 2 - supports builtins
+/* process.c
  * command processing layer
  * 
  * The process(char **arglist) function is called by the main loop
@@ -11,10 +8,12 @@
  * 	b) control structures (e.g. if, while, for)
  */
 
+#include	<stdio.h>
+#include	"smsh.h"
+
 int is_control_command(char *);
 int do_control_command(char **);
 int ok_to_execute();
-int builtin_command(char **, int *);
 
 int process(char **args)
 /*
@@ -31,8 +30,7 @@ int process(char **args)
 	else if ( is_control_command(args[0]) )
 		rv = do_control_command(args);
 	else if ( ok_to_execute() )
-		if ( !builtin_command(args,&rv) )
-			rv = execute(args);
+		rv = execute(args);
 	return rv;
 }
 

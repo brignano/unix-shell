@@ -7,12 +7,7 @@
 #include	<ctype.h>
 #include	"smsh.h"
 #include	"varlib.h"
-#include 	<string.h>
 
-#include <stdlib.h>
-#include <unistd.h> /* for fork */
-#include <sys/types.h> /* for pid_t */
-#include <sys/wait.h> /* for wait */
 int assign(char *);
 int okname(char *);
 
@@ -42,10 +37,8 @@ int builtin_command(char **args, int *resultp)
 			*resultp = 1;
 		rv = 1;
 	}
-
 	return rv;
 }
-
 
 int assign(char *str)
 /*
