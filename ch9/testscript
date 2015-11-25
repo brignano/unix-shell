@@ -1,5 +1,0 @@
-./myprog; who; #built in commands and user program
-cd '/home/jaskaran/' #cd and pwd
-pwd
-cd '/home/jaskaran/ch9'
-pwd
