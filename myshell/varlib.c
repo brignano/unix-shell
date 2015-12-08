@@ -30,6 +30,32 @@ int VLstore(char *name, char *val) {
    return rv;
 }
 
+int VLunset(char *name) {
+   struct var *itemp;
+   int rv = 1;
+   if( (itemp=find_item(name,0)) != NULL) {
+      while(itemp->str != NULL) {
+         itemp->str=(itemp+1)->str;
+         itemp->global=(itemp+1)->global;
+         itemp++;
+      }
+      rv = 0;
+   }
+   return rv;
+}
+
+int VLreference(char *name) {
+   struct var *itemp;
+   char *cp;
+   int rv = 1;
+   if( (itemp=find_item(name,0)) != NULL) {
+      cp = strchr(itemp->str,'=');
+      printf("%s\n",cp+1);
+      rv = 0;
+   }
+   return rv;
+}
+
 char *new_string(char *name, char *val) {
    char *retval;
    
