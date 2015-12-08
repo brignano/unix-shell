@@ -10,6 +10,7 @@ int  execute(char **);
 void fatal(char *, char *, int);
 int  process();
 int pipe1(char**);
+int redirect(char**);
 int fork();
 
 int  VLenviron2table(char **);

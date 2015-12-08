@@ -16,6 +16,10 @@ int redirect(char **av)
 	if ( (pid = fork()) == -1 )			/* get a proc	*/
 		oops("Cannot fork", 2);
 
+	/* ------------------------------------------------------------ */
+	/* 	Right Here, there are two processes			*/
+	/*             parent will read from pipe			*/
+
 	if ( pid > 0 ){			/* parent will exec av[2]	*/
 		close(thepipe[1]);	/* parent doesn't write to pipe	*/
 
