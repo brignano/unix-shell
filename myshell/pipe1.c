@@ -10,7 +10,7 @@
  */
 #include	<stdio.h>
 #include	<unistd.h>
-#include    <stdlib.h>
+#include        <stdlib.h>
  
 #define	oops(m,x)	{ perror(m); exit(x); }
 
@@ -55,5 +55,5 @@ int pipe1( char **av)
 	close(thepipe[1]);		/* stdout is duped, close pipe	*/
 	execlp( av[1], av[1], NULL);
 	oops(av[1], 5);
-return 1;
+	return 1;
 }

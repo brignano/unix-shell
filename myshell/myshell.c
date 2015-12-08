@@ -6,7 +6,7 @@
 #include <sys/wait.h>
 #include "myshell.h"
 
-#define DFL_PROMPT "$ "
+#define DFL_PROMPT "> "
 
 int main() {
    char *cmdline, *prompt, **arglist;
