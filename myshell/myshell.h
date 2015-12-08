@@ -9,6 +9,8 @@ void *erealloc(void *, size_t);
 int  execute(char **);
 void fatal(char *, char *, int);
 int  process();
+int pipe1(char**);
+int fork();
 
 int  VLenviron2table(char **);
 int  VLexport(char *);
@@ -18,3 +20,4 @@ int  VLstore(char *, char *);
 int  VLreference(char *);
 char **VLtable2environ();
 int  VLenviron2table(char **);
+int VLunset(char *);

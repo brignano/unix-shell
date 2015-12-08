@@ -94,11 +94,6 @@ int reference(char *str) {
    return rv;
 }
 
-int unset(char *str) {
-   char *cp;
-   int rv;
-}
-
 int okname(char *str) {
    char *cp;
    
