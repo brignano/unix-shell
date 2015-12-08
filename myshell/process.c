@@ -27,6 +27,9 @@ int process(char **args) {
             pipe1(p);
          rv = 1;
       }
+      else if((args[1] != NULL) && ( args[1][1] == '>' || args[1][1] == '>') ) { // does this work? - args[1][1] to check first character
+         // redirection goes here
+      }
       else if(!builtin_command(args, &rv) ) {
          rv = execute(args);
       }
