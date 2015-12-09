@@ -1,6 +1,8 @@
 #include	<stdio.h>
 #include	<unistd.h>
 #include    <stdlib.h>
+#include	<fcntl.h>
+#include	<string.h>
  
 #define	oops(m,x)	{ perror(m); exit(x); }
 
@@ -20,26 +22,35 @@ int redirect(char **av)
 	/* 	Right Here, there are two processes			*/
 	/*             parent will read from pipe			*/
 
-	if ( pid > 0 ){			/* parent will exec av[2]	*/
-		close(thepipe[1]);	/* parent doesn't write to pipe	*/
-
-		if ( dup2(thepipe[0], 0) == -1 )
-			oops("could not redirect stdin",3);
-
-		close(thepipe[0]);	/* stdin is duped, close pipe	*/
-		execlp( av[2], av[2], NULL);
-		oops(av[2], 4);
+	if(strcmp(av[1],">>")==0){
+	// create file for writing, overwrite previous one
+	// implies av[3] is an output file
+		int fd = open(av[3], O_CREAT, 0666);
+		dup2(fd, STDOUT_FILENO);
+		close(fd);
+		execlp(av[2], av[2], NULL);
+	}
+	else if(strcmp(av[1],"<<")==0){
+		
+	}
+	else if(strcmp(av[1],">")==0){
+	// open file for writing, append previous one
+		int fd = open(av[3], O_WRONLY|O_CREAT, 0666);
+		dup2(fd, STDOUT_FILENO);
+		close(fd);
+		execlp(av[2], av[2], NULL);
+	}
+	else if(strcmp(av[1],"<")==0){
+	// open file for reading, output user appropriate text
+	// implies av[3] is an output file
+		int fd = open(av[3], O_RDONLY);
+		dup2(fd, STDIN_FILENO);
+		close(fd);
+		execlp(av[2], av[2], NULL);
+	}
+	else{
+		oops("Invalid redirection input ", 1);
 	}
 
-	/*	 child execs av[1] and writes into pipe			*/
-
-	close(thepipe[0]);		/* child doesn't read from pipe	*/
-
-	if ( dup2(thepipe[1], 1) == -1 )
-		oops("could not redirect stdout", 4);
-
-	close(thepipe[1]);		/* stdout is duped, close pipe	*/
-	execlp( av[1], av[1], NULL);
-	oops(av[1], 5);
 	return 1;
 }

@@ -33,8 +33,9 @@ int process(char **args) {
             rv = 1;
          }
          else if((args[1] != NULL) && ( (char)args[1][0] == '>' || (char)args[1][0] == '<') ) { // does this work?
+         // else if((args[i] != NULL) && ( (char)args[i][0] == '>' || (char)args[i][0] == '<') ) { // does this work?
             // redirection goes here
-            char *r[3] = {"redirection", args[0], args[2]};
+            char *r[4] = {"redirection", args[1], args[0], args[2]};
             // char *r[3] = {"redirection", args[i-1], args[i+1]};
             if((pid = fork() == -1)){
                perror("cannot fork");

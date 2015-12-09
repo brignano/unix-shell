@@ -12,6 +12,7 @@ int  process();
 int pipe1(char**);
 int redirect(char**);
 int fork();
+int redirect(char **);
 
 int  VLenviron2table(char **);
 int  VLexport(char *);
