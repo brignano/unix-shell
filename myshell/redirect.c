@@ -25,7 +25,7 @@ int redirect(char **av)
 	if(strcmp(av[1],">>")==0){
 	// create file for writing, overwrite previous one
 	// implies av[3] is an output file
-		int fd = open(av[3], O_CREAT, 0666);
+		int fd = open(av[3], O_CREAT | O_APPEND | O_WRONLY, 0666);
 		dup2(fd, STDOUT_FILENO);
 		close(fd);
 		execlp(av[2], av[2], NULL);
@@ -35,7 +35,7 @@ int redirect(char **av)
 	}
 	else if(strcmp(av[1],">")==0){
 	// open file for writing, append previous one
-		int fd = open(av[3], O_WRONLY|O_CREAT, 0666);
+		int fd = open(av[3], O_WRONLY | O_CREAT, 0666);
 		dup2(fd, STDOUT_FILENO);
 		close(fd);
 		execlp(av[2], av[2], NULL);
