@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "myshell.h"
-#include "redirect.c"
 
 int is_control_command(char *);
 int do_control_command(char **);
@@ -35,7 +34,7 @@ int process(char **args) {
          else if((args[1] != NULL) && ( (char)args[1][0] == '>' || (char)args[1][0] == '<') ) { // does this work?
          // else if((args[i] != NULL) && ( (char)args[i][0] == '>' || (char)args[i][0] == '<') ) { // does this work?
             // redirection goes here
-            char *r[4] = {"redirection", args[1], args[0], args[2]};
+            char *r[4] = {"redirect", args[1], args[0], args[2]};
             // char *r[3] = {"redirection", args[i-1], args[i+1]};
             if((pid = fork() == -1)){
                perror("cannot fork");
