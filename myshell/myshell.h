@@ -7,7 +7,6 @@ void freelist(char **);
 void *emalloc(size_t);
 void *erealloc(void *, size_t);
 int  execute(char **);
-int  execute_pipe(char *);
 void fatal(char *, char *, int);
 int  process();
 int  pipe1(char**);
