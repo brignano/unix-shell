@@ -9,14 +9,14 @@
 int redirect(char **av)
 {
 	int	thepipe[2],			/* two file descriptors	*/
-		newfd,				/* useful for pipes	*/
-		pid;				/* and the pid		*/
+		newfd;				/* useful for pipes	*/
+		//pid;				/* and the pid		*/
 
 	if ( pipe( thepipe ) == -1 )		/* get a pipe		*/
 		oops("Cannot get a pipe", 1);
 
-	if ( (pid = fork()) == -1 )			/* get a proc	*/
-		oops("Cannot fork", 2);
+	//if ( (pid = fork()) == -1 )			/* get a proc	*/
+		//oops("Cannot fork", 2);
 
 	/* ------------------------------------------------------------ */
 	/* 	Right Here, there are two processes			*/
@@ -35,7 +35,7 @@ int redirect(char **av)
 	}
 	else if(strcmp(av[1],">")==0){
 	// open file for writing, append previous one
-		int fd = open(av[3], O_WRONLY | O_CREAT, 0666);
+		int fd = open(av[3], O_WRONLY | O_CREAT | O_TRUNC, 0666);
 		dup2(fd, STDOUT_FILENO);
 		close(fd);
 		execlp(av[2], av[2], NULL);
