@@ -1,4 +1,8 @@
-
+/* Executes system
+ * commands
+ * 
+ * Author: copied from book
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

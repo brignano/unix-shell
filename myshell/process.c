@@ -1,3 +1,10 @@
+/* Determines what type of process
+ * was passed through arglist
+ * and forwards to the correct method
+ * 
+ * Authors: Anthony Brignano - redirect flow,
+ *          Jaskaran Singh - pipe flow
+ */
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

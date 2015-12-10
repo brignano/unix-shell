@@ -1,4 +1,9 @@
-
+/* Determines whether process is
+ * builtin to shell or not
+ * and executes builtin commands
+ * 
+ * Author: Curtis Willbanks
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

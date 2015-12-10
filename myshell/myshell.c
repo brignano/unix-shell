@@ -1,4 +1,9 @@
-
+/* Main shell responsible for
+ * setting up shell variables
+ * and calling processes from input
+ * 
+ * Author: Curtis Willbanks
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

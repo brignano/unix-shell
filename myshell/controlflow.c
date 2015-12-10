@@ -1,3 +1,9 @@
+/* Controls
+ * flow of if/then/fi
+ * and if/then/else/fi blocks
+ * 
+ * Author: Curtis Willbanks
+ */
 #include <string.h>
 #include <stdio.h>
 #include "myshell.h"

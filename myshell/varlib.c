@@ -1,4 +1,8 @@
-
+/* Various functionality for
+ * shell variables
+ * 
+ * Author: Curtis Willbanks
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

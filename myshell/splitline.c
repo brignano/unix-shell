@@ -1,4 +1,9 @@
-
+/* Splits arglist into
+ * seperate arguments by
+ * ' ' character and frees lists
+ * 
+ * Author: copied from book
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

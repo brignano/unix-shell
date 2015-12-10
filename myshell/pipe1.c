@@ -7,6 +7,8 @@
  *	* Limitations: commands do not take arguments
  *	* uses execlp() since known number of args
  *	* Note: exchange child and parent and watch fun
+ *
+ *Author: Jaskaran Singh
  */
 #include	<stdio.h>
 #include	<unistd.h>
